@@ -1,10 +1,11 @@
 # Variables
 CLUSTER_NAME=vprofile-eks-cluster
 REGION=us-east-2
-NODE_NAME=Linux-nodes
-KEY_NAME=vprofile-eks-key
+#We don't have a master node ; EKS service itself is the master
+NODE_NAME=Linux-nodes #worker nodes name
+KEY_NAME=vprofile-eks-key #this is the SSH public key name, so we have to create a key pair with this name.
 
-# Set AWS credentials before script execution
+# @@@@@@@@@@@ Set AWS credentials before script execution @@@@@@@@@@@@@@@
 
 aws sts get-caller-identity >> /dev/null
 if [ $? -eq 0 ]
